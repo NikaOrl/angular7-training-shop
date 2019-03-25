@@ -1,0 +1,10 @@
+<div>Product: {{ name }}</div>
+<div>Description: {{ description }}</div>
+<div>Price: {{ price }}</div>
+<div>Category: {{ category }}</div>
+<div>
+  {{
+    isAvailable ? 'This product is available' : 'This product is not available'
+  }}
+</div>
+<button (click)="onBuy()">Buy</button>
