@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
     this.getCartProducts();
   }
 
-  getCartProducts(): void {
+  private getCartProducts(): void {
     this.cartProducts = this.cartService.getCartProducts();
   }
 }

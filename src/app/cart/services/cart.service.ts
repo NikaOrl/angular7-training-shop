@@ -12,11 +12,11 @@ export class CartService implements OnInit {
     this.basket = [];
   }
 
-  onBuy(product): void {
+  onBuy(product: Product): void {
     this.basket.push(product);
   }
 
-  getCartProducts() {
+  getCartProducts(): Product[] {
     return this.basket;
   }
 }

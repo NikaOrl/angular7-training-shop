@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
     this.getProducts();
   }
 
-  getProducts(): void {
+  private getProducts(): void {
     this.products = this.productsService.getProducts();
   }
 }

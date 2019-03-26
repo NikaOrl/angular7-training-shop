@@ -46,7 +46,7 @@ export class ProductsService {
     }
   ];
 
-  getProducts() {
+  getProducts(): Product[] {
     return this.products;
   }
 }

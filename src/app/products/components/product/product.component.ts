@@ -21,7 +21,7 @@ export class ProductComponent {
 
   constructor(private cart: CartService) {}
 
-  onBuy() {
+  onBuy(): void {
     console.log(`The ${this.name} was bought`);
     this.cart.onBuy(this);
   }
