@@ -1,12 +1,15 @@
 <div *ngIf="cartProducts.length > 0; else elseBlock">
   <h2>Products cart:</h2>
-  <app-product
-    *ngFor="let item of cartProducts"
-    [name]="item.name"
-    [description]="item.description"
-    [price]="item.price"
-    [category]="item.category"
-    [isAvailable]="item.isAvailable"
-  ></app-product>
+  <h3>Total price: {{ cartService.getSumPrice() }}</h3>
+  <h3>Products in the cart: {{ cartProducts.length }}</h3>
+  <div *ngFor="let item of cartProducts" appProductStylization>
+    <app-product
+      [name]="item.name"
+      [description]="item.description"
+      [price]="item.price"
+      [category]="item.category"
+      [isAvailable]="item.isAvailable"
+    ></app-product>
+  </div>
 </div>
 <ng-template #elseBlock><h2>The cart is empty</h2></ng-template>
