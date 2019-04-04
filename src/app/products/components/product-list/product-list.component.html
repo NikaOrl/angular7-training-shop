@@ -8,5 +8,7 @@
     [isAvailable]="item.isAvailable"
   ></app-product>
 
-  <button *ngIf="item.isAvailable" (click)="onBuy(item)">Buy</button>
+  <button [disabled]="!item.isAvailable" (click)="onBuy(item)">
+    Buy
+  </button>
 </div>
