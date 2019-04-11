@@ -1,9 +1,14 @@
 <h2>Products:</h2>
-<app-product
-  *ngFor="let item of products"
-  [name]="item.name"
-  [description]="item.description"
-  [price]="item.price"
-  [category]="item.category"
-  [isAvailable]="item.isAvailable"
-></app-product>
+<div *ngFor="let item of products">
+  <app-product
+    [name]="item.name"
+    [description]="item.description"
+    [price]="item.price"
+    [category]="item.category"
+    [isAvailable]="item.isAvailable"
+  ></app-product>
+
+  <button [disabled]="!item.isAvailable" (click)="onBuy(item)">
+    Buy
+  </button>
+</div>
