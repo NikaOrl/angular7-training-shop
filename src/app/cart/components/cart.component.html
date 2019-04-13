@@ -1,9 +1,19 @@
 <div *ngIf="cartProducts.length > 0; else elseBlock">
   <h2>Products cart:</h2>
-  <h3>Total price: {{ getSumPrice() }}</h3>
+  <h3>Total price: {{ getSumPrice() | currency }}</h3>
   <button (click)="onCartClean()">Clean the cart</button>
   <h3>Products in the cart: {{ getProductsNumber() }}</h3>
-  <div *ngFor="let item of cartProducts" appProductStylization>
+  <select [(ngModel)]="field">
+    <option *ngFor="let f of fields"> {{ f }} </option>
+  </select>
+  <select [(ngModel)]="order">
+    <option [ngValue]="false">bigger first</option>
+    <option [ngValue]="true">smaller first</option>
+  </select>
+  <div
+    *ngFor="let item of (cartProducts | orderBy: field:order)"
+    appProductStylization
+  >
     <app-product
       [name]="item.product.name"
       [description]="item.product.description"
