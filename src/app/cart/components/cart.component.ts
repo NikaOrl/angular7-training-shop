@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CartService } from '../services/cart.service';
-import { Product } from 'src/app/shared/product.model';
+import { BasketProduct } from 'src/app/shared/basketProduct.model';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  cartProducts: Product[];
+  cartProducts: BasketProduct[];
 
   constructor(private cartService: CartService) {}
 
@@ -19,6 +19,27 @@ export class CartComponent implements OnInit {
 
   getSumPrice(): number {
     return this.cartService.getSumPrice();
+  }
+
+  getProductsNumber(): number {
+    return this.cartService.getProductsNumber();
+  }
+
+  onProductRemove(basketProduct: BasketProduct): void {
+    this.cartService.onProductRemove(basketProduct);
+  }
+
+  onProductAdding(basketProduct: BasketProduct): void {
+    this.cartService.onProductAdding(basketProduct);
+  }
+
+  onProductReducing(basketProduct: BasketProduct): void {
+    this.cartService.onProductReducing(basketProduct);
+  }
+
+  onCartClean(): void {
+    this.cartService.onCartClean();
+    this.cartProducts = this.cartService.getCartProducts();
   }
 
   private getCartProducts(): void {

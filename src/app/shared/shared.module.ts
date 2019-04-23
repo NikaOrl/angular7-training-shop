@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductStylizationDirective } from './product-stylization.directive';
+import { ClickDirective } from './click.directive';
 
 @NgModule({
-  declarations: [ProductStylizationDirective],
+  declarations: [ProductStylizationDirective, ClickDirective],
   imports: [CommonModule],
-  exports: [ProductStylizationDirective]
+  exports: [ProductStylizationDirective, ClickDirective],
 })
 export class SharedModule {}
