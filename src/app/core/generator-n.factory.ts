@@ -6,7 +6,7 @@ export function GeneratorNFactory(n: number) {
     const text = [];
     const possible = 'abcdefghijklmnopqrstuvwxyz';
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < n; i++) {
       text.push(possible.charAt(Math.floor(Math.random() * possible.length)));
     }
     return text;

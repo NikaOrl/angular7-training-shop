@@ -1,28 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ProductsService } from '../../services/products.service';
-import { Product } from 'src/app/shared/product.model';
+import { Product } from 'src/app/shared/models/product.model';
 import { CartService } from '../../../cart/services/cart.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  products: Product[];
+  products: Promise<Product>;
 
   constructor(
     private productsService: ProductsService,
-    private cart: CartService
+    private cart: CartService,
   ) {}
 
   ngOnInit() {
     this.getProducts();
+    this.products = this.productsService.getProducts();
+    console.log(this.products);
   }
 
-  private getProducts(): void {
-    this.products = this.productsService.getProducts();
+  getProducts(): Promise<Product> {
+    return this.products;
   }
 
   onBuy(item: Product): void {

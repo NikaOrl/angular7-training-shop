@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CartService } from '../services/cart.service';
-import { BasketProduct } from 'src/app/shared/basketProduct.model';
+import { BasketProduct } from 'src/app/shared/models/basketProduct.model';
 
 @Component({
   selector: 'app-cart',
@@ -10,6 +10,9 @@ import { BasketProduct } from 'src/app/shared/basketProduct.model';
 })
 export class CartComponent implements OnInit {
   cartProducts: BasketProduct[];
+  fields: string[] = ['name', 'price', 'number'];
+  field = 'name';
+  order = true;
 
   constructor(private cartService: CartService) {}
 
