@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject, InjectionToken } from '@angular/core';
-import { LocalStorageService } from '../core/local-storage.service';
-import { ConfigOptionsService } from '../core/config-options.service';
+import { LocalStorageService } from '../../../core/local-storage.service';
+import { ConfigOptionsService } from '../../../core/config-options.service';
 import {
   GeneratorNFactory,
   GeneratorService,
-} from '../core/generator-n.factory';
+} from '../../../core/generator-n.factory';
 
 const ConstantsService = new InjectionToken<string>('title');
 
