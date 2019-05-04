@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { OrdersService } from '../../services/orders.service';
 
 @Component({
@@ -12,9 +13,10 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {}
 
-  onOrder() {
+  onOrder(): void {
     if (this.name && this.name !== '') {
       this.ordersService.onOrder(this.name);
+      this.name = '';
     } else {
       alert('Enter your name!');
     }

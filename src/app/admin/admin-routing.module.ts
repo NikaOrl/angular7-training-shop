@@ -5,11 +5,14 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';
 import { AdminProductFormComponent } from './components/admin-product-form/admin-product-form.component';
+import { ProductResolveGuard } from '../products/guards/product-resolve.guard';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'products',
@@ -22,6 +25,9 @@ const routes: Routes = [
       {
         path: 'product/edit/:productID',
         component: AdminProductFormComponent,
+        resolve: {
+          product: ProductResolveGuard,
+        },
       },
       {
         path: 'orders',

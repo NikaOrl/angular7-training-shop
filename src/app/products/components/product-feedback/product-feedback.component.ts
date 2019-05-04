@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { FeedbackService } from 'src/app/core/services/feedback.service';
 
 @Component({
@@ -20,14 +21,14 @@ export class ProductFeedbackComponent implements OnInit {
     this.id = +this.route.snapshot.paramMap.get('productID');
   }
 
-  onFeedback() {
+  onFeedback(): void {
     if (this.feedback) {
       this.feedbackService.addFeedback(this.id, this.feedback);
       this.feedback = '';
     }
   }
 
-  getFeedback() {
+  getFeedback(): string[] {
     return this.feedbackService.getFeedback(this.id);
   }
 }

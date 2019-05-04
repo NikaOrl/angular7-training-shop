@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Order } from '../models/order.model';
 import { CartService } from 'src/app/cart/services/cart.service';
 
@@ -24,5 +25,9 @@ export class OrdersService {
     } else {
       alert('Your cart is empty!');
     }
+  }
+
+  getOrders(): Order[] {
+    return this.orders;
   }
 }

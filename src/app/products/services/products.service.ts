@@ -46,7 +46,7 @@ export class ProductsService {
     return this.products.find(product => product.id === id);
   }
 
-  updateProduct(product: Product) {
+  updateProduct(product: Product): void {
     const i = this.products.findIndex(t => t.id === product.id);
 
     if (i > -1) {
@@ -54,7 +54,7 @@ export class ProductsService {
     }
   }
 
-  createProduct(product: Product) {
+  createProduct(product: Product): void {
     this.products.push(product);
   }
 }

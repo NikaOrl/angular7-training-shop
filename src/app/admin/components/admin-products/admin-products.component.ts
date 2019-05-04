@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Product } from 'src/app/products/models/product.model';
 import { ProductsService } from 'src/app/products/services/products.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-products',
@@ -23,8 +24,13 @@ export class AdminProductsComponent implements OnInit {
     return this.products;
   }
 
-  editProduct(product: Product) {
+  editProduct(product: Product): void {
     const link = ['admin/product/edit', product.id];
     this.router.navigate(link);
+  }
+
+  addProduct(): void {
+    const link = 'admin/product/add';
+    this.router.navigateByUrl(link);
   }
 }

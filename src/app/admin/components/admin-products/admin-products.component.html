@@ -1,12 +1,16 @@
 <h2>Products:</h2>
 <div *ngFor="let item of products | async">
-  <app-product
-    [name]="item.name"
-    [description]="item.description"
-    [price]="item.price"
-    [category]="item.category"
-    [isAvailable]="item.isAvailable"
-  ></app-product>
+  <div>Product: {{ item.name }}</div>
+  <div>Description: {{ item.description }}</div>
+  <div>Price: {{ item.price | currency }}</div>
+  <div>Category: {{ item.category | uppercase }}</div>
+  <div>
+    {{
+      item.isAvailable
+        ? 'This product is available'
+        : 'This product is not available'
+    }}
+  </div>
   <button (click)="editProduct(item)">
     Edit
   </button>
