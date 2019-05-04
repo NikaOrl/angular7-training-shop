@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { ProductComponentCategory } from '../components/product/product.component';
-import { Product } from 'src/app/shared/models/product.model';
+import { Product } from 'src/app/products/models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +9,7 @@ import { Product } from 'src/app/shared/models/product.model';
 export class ProductsService {
   private products: Product[] = [
     {
+      id: 0,
       name: 'apple',
       description: 'apple',
       price: 10,
@@ -16,6 +17,7 @@ export class ProductsService {
       isAvailable: true,
     },
     {
+      id: 1,
       name: 'watermelon',
       description: 'watermelon',
       price: 20,
@@ -23,6 +25,7 @@ export class ProductsService {
       isAvailable: true,
     },
     {
+      id: 2,
       name: 'bread',
       description: 'bread',
       price: 15,
@@ -35,7 +38,23 @@ export class ProductsService {
     return <Promise<Product>>new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.products);
-      }, 1000);
+      }, 200);
     }).catch(error => error);
+  }
+
+  getProduct(id: number): Product {
+    return this.products.find(product => product.id === id);
+  }
+
+  updateProduct(product: Product) {
+    const i = this.products.findIndex(t => t.id === product.id);
+
+    if (i > -1) {
+      this.products.splice(i, 1, product);
+    }
+  }
+
+  createProduct(product: Product) {
+    this.products.push(product);
   }
 }

@@ -1,0 +1,15 @@
+<div *ngIf="product !== undefined; else elseBlock">
+  <h2>About the product "{{ product.name }}"</h2>
+  <app-product
+    [name]="product.name"
+    [description]="product.description"
+    [price]="product.price"
+    [category]="product.category"
+    [isAvailable]="product.isAvailable"
+  ></app-product>
+  <button class="btn btn-success" (click)="onDisplayFeedback()">
+    Show Feedback
+  </button>
+  <router-outlet name="feedback"></router-outlet>
+</div>
+<ng-template #elseBlock><h2>Product not found!</h2></ng-template>

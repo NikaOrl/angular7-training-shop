@@ -7,8 +7,10 @@
     [category]="item.category"
     [isAvailable]="item.isAvailable"
   ></app-product>
-  <a routerLink="/product/{{ item.id }}" href="#">More</a>
-  <button [disabled]="!item.isAvailable" (click)="onBuy(item)">
-    Buy
+  <button (click)="editProduct(item)">
+    Edit
   </button>
 </div>
+<button (click)="addProduct()">
+  Add product
+</button>

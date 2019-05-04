@@ -8,6 +8,7 @@ import { ProductsModule } from './products/products.module';
 import { ContactUsComponent } from './shared/components/contact-us/contact-us.component';
 import { CoreModule } from './core/core.module';
 import { OrdersModule } from './orders/orders.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [AppComponent, ContactUsComponent],
@@ -17,6 +18,7 @@ import { OrdersModule } from './orders/orders.module';
     ProductsModule,
     CoreModule,
     OrdersModule,
+    AdminModule,
     AppRoutingModule,
   ],
   providers: [],

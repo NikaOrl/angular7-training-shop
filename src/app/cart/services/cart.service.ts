@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 
-import { Product } from 'src/app/shared/models/product.model';
+import { Product } from 'src/app/products/models/product.model';
 import { BasketProduct } from 'src/app/shared/models/basketProduct.model';
 
 @Injectable({
