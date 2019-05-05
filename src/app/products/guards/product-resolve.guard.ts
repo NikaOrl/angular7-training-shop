@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
-
 import { Observable, of } from 'rxjs';
 
 import { Product } from '../models/product.model';
-import { ProductsService } from '../services/products.service';
+import { ProductHttpService } from '../services/product-http.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductResolveGuard implements Resolve<Product> {
   constructor(
-    private productsService: ProductsService,
+    private productHttpService: ProductHttpService,
     private router: Router,
   ) {}
 
@@ -22,11 +21,11 @@ export class ProductResolveGuard implements Resolve<Product> {
     const isOld =
       id !== null &&
       !isNaN(+id) &&
-      this.productsService.getProduct(+id) !== undefined;
+      this.productHttpService.getProduct(+id) !== undefined;
     if (isOld) {
-      const product = this.productsService.getProduct(+id);
+      const product = this.productHttpService.getProduct(+id);
       if (product) {
-        return of(product);
+        return product;
       } else {
         this.router.navigate(['/admin/products']);
         return null;

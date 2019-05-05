@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { pluck } from 'rxjs/operators';
 
 import { Product } from 'src/app/products/models/product.model';
-import { ProductsService } from 'src/app/products/services/products.service';
+import { ProductHttpService } from 'src/app/products/services/product-http.service';
 
 @Component({
   selector: 'app-admin-product-form',
@@ -16,7 +16,7 @@ export class AdminProductFormComponent implements OnInit {
   isOld: boolean;
 
   constructor(
-    private productsService: ProductsService,
+    private productHttpService: ProductHttpService,
     private route: ActivatedRoute,
     private router: Router,
   ) {}
@@ -26,7 +26,7 @@ export class AdminProductFormComponent implements OnInit {
     this.isOld =
       this.id !== null &&
       !isNaN(+this.id) &&
-      this.productsService.getProduct(+this.id) !== undefined;
+      this.productHttpService.getProduct(+this.id) !== undefined;
     this.route.data.pipe(pluck('product')).subscribe((product: Product) => {
       this.product = { ...product };
     });
@@ -35,11 +35,14 @@ export class AdminProductFormComponent implements OnInit {
   onSaveProduct(): void {
     const product = { ...this.product };
     if (this.isOld) {
-      this.productsService.updateProduct(product);
+      this.productHttpService
+        .updateProduct(product)
+        .then(() => this.onGoBack());
     } else {
-      this.productsService.createProduct(product);
+      this.productHttpService
+        .createProduct(product)
+        .then(() => this.onGoBack());
     }
-    this.onGoBack();
   }
 
   onGoBack(): void {

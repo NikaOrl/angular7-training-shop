@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "name": "apple3",
+      "description": "apple",
+      "price": 10,
+      "category": "Fruits",
+      "isAvailable": true
+    },
+    {
+      "id": 1,
+      "name": "watermelon",
+      "description": "watermelon",
+      "price": 20,
+      "category": "Fruits",
+      "isAvailable": true
+    },
+    {
+      "id": 2,
+      "name": "bread",
+      "description": "bread",
+      "price": 15,
+      "category": "Bakery products",
+      "isAvailable": false
+    },
+    {
+      "name": "cc",
+      "description": "apple",
+      "price": 2,
+      "category": "Fruits",
+      "isAvailable": true,
+      "id": 3
+    }
+  ]
+}

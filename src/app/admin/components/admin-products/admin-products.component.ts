@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Product } from 'src/app/products/models/product.model';
-import { ProductsService } from 'src/app/products/services/products.service';
+import { ProductHttpService } from 'src/app/products/services/product-http.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -10,17 +10,18 @@ import { ProductsService } from 'src/app/products/services/products.service';
   styleUrls: ['./admin-products.component.scss'],
 })
 export class AdminProductsComponent implements OnInit {
-  products: Promise<Product>;
+  products: Promise<Product[]>;
+
   constructor(
-    private productsService: ProductsService,
+    private productHttpService: ProductHttpService,
     private router: Router,
   ) {}
 
   ngOnInit() {
-    this.products = this.productsService.getProducts();
+    this.products = this.productHttpService.getProducts();
   }
 
-  getProducts(): Promise<Product> {
+  getProducts(): Promise<Product[]> {
     return this.products;
   }
 
