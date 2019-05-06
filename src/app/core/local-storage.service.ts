@@ -5,17 +5,17 @@ import { CoreModule } from './core.module';
   providedIn: CoreModule,
 })
 export class LocalStorageService {
-  constructor() {}
-
-  setItem(key, value) {
-    localStorage.setItem(key, value);
+  saveToLocalStorage(key: string, items: Array<any>) {
+    localStorage.setItem(key, JSON.stringify(items));
   }
 
-  getItem(key) {
-    localStorage.getItem(key);
+  getFromLocalStorage(key: string) {
+    return JSON.parse(localStorage.getItem(key));
   }
 
-  removeItem(key) {
-    localStorage.removeItem(key);
+  addToLocalStorage(key: string, item: any) {
+    const items = this.getFromLocalStorage(key);
+    items.push(item);
+    this.saveToLocalStorage(key, items);
   }
 }
