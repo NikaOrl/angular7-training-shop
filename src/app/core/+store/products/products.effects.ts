@@ -42,9 +42,9 @@ export class ProductsEffects {
     concatMap((payload: Product) =>
       this.productHttpService
         .updateProduct(payload)
-        .then(task => {
+        .then(product => {
           this.router.navigate(['/admin/products']);
-          return new ProductsActions.UpdateProductSuccess(task);
+          return new ProductsActions.UpdateProductSuccess(product);
         })
         .catch(err => new ProductsActions.UpdateProductError(err)),
     ),
@@ -59,9 +59,9 @@ export class ProductsEffects {
     concatMap((payload: Product) =>
       this.productHttpService
         .createProduct(payload)
-        .then(task => {
+        .then(product => {
           this.router.navigate(['/admin/products']);
-          return new ProductsActions.CreateProductSuccess(task);
+          return new ProductsActions.CreateProductSuccess(product);
         })
         .catch(err => new ProductsActions.CreateProductError(err)),
     ),
