@@ -4,7 +4,7 @@
 <form
   *ngIf="product"
   (ngSubmit)="onSaveProduct()"
-  id="task-form"
+  id="product-form"
   #form="ngForm"
 >
   <div class="form-group">
@@ -67,7 +67,7 @@
       [(ngModel)]="product.isAvailable"
     />
   </div>
-  <button type="submit" form="task-form" [disabled]="form.invalid">
+  <button type="submit" form="product-form" [disabled]="form.invalid">
     Save
   </button>
   <button type="button" class="btn btn-primary" (click)="onGoBack()">

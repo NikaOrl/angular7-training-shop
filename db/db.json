@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 0,
-      "name": "apple3",
+      "name": "apple",
       "description": "apple",
       "price": 10,
       "category": "Fruits",
@@ -23,14 +23,6 @@
       "price": 15,
       "category": "Bakery products",
       "isAvailable": false
-    },
-    {
-      "name": "cc",
-      "description": "apple",
-      "price": 2,
-      "category": "Fruits",
-      "isAvailable": true,
-      "id": 3
     }
   ]
 }
