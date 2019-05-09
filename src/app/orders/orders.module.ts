@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OrderComponent } from './components/order/order.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { OrdersRoutingModule } from './orders-routing.module';
-import { FormsModule } from '@angular/forms';
+import { ProcessOrderComponent } from './components/process-order/process-order.component';
 
 @NgModule({
-  declarations: [OrderComponent],
-  imports: [CommonModule, OrdersRoutingModule, FormsModule],
-  exports: [OrderComponent],
+  declarations: [ProcessOrderComponent],
+  imports: [CommonModule, OrdersRoutingModule, ReactiveFormsModule],
+  exports: [ProcessOrderComponent],
 })
 export class OrdersModule {}

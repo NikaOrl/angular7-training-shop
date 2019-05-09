@@ -1,0 +1,47 @@
+<h3>Order</h3>
+<form [formGroup]="orderForm" (ngSubmit)="onOrder()">
+  <div>
+    <input
+      type="text"
+      formControlName="clientName"
+      placeholder="name (required)"
+      (blur)="onBlur('clientName')"
+    />
+  </div>
+  <div>
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="email (required)"
+      (blur)="onBlur('email')"
+    />
+  </div>
+  <div formArrayName="phones">
+    <div *ngFor="let phones of phones.controls; let i = index">
+      <span>Phone number {{ i + 1 }}: </span
+      ><input
+        type="text"
+        id="{{ 'phoneId' + i }}"
+        formControlName="{{ i }}"
+        placeholder="phone number"
+      />
+      <button type="button" (click)="onDeletePhone(i)">
+        Delete
+      </button>
+    </div>
+  </div>
+  <button (click)="onAddPhone()" type="button">Add another phone</button>
+  <div>
+    <span>Need delivery:</span>
+    <input type="checkbox" formControlName="needDelivery" />
+  </div>
+  <div *ngIf="orderForm.get('needDelivery').value">
+    <input type="address" formControlName="address" placeholder="address" />
+  </div>
+  <div *ngIf="validationMessage" style="color: red">
+    {{ validationMessage }}
+  </div>
+  <button type="submit" [disabled]="!orderForm.valid">
+    Order
+  </button>
+</form>
