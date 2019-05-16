@@ -6,24 +6,21 @@ import { Product } from '../models/product.model';
 import { ProductHttpService } from '../services/product-http.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProductResolveGuard implements Resolve<Product> {
   constructor(
     private productHttpService: ProductHttpService,
-    private router: Router,
+    private router: Router
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<Product | null> {
     console.log('UserResolve Guard is called');
 
     const id = route.paramMap.get('productID');
-    const isOld =
-      id !== null &&
-      !isNaN(+id) &&
-      this.productHttpService.getProduct(+id) !== undefined;
+    const product = this.productHttpService.getProduct(+id);
+    const isOld = id !== null && !isNaN(+id) && product !== undefined;
     if (isOld) {
-      const product = this.productHttpService.getProduct(+id);
       if (product) {
         return product;
       } else {

@@ -9,4 +9,9 @@ describe('OrdersService', () => {
     const service: OrdersService = TestBed.get(OrdersService);
     expect(service).toBeTruthy();
   });
+
+  it('should retrun [] by getOrders()', () => {
+    const service: OrdersService = TestBed.get(OrdersService);
+    expect(service.getOrders()).toEqual([]);
+  });
 });

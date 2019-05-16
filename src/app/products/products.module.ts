@@ -13,21 +13,18 @@ import { ProductsAPIProvider } from './product.config';
 import { productsReducer } from '../core/+store/products/products.reducer';
 import { ProductsEffects } from '../core/+store/products/products.effects';
 
+const elems = [ProductComponent, ProductListComponent];
+
 @NgModule({
-  declarations: [
-    ProductComponent,
-    ProductListComponent,
-    ProductFeedbackComponent,
-    ProductCartComponent,
-  ],
+  declarations: [...elems, ProductFeedbackComponent, ProductCartComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     FormsModule,
     StoreModule.forFeature('products', productsReducer),
-    EffectsModule.forFeature([ProductsEffects]),
+    EffectsModule.forFeature([ProductsEffects])
   ],
-  exports: [ProductComponent, ProductListComponent],
-  providers: [ProductsAPIProvider],
+  exports: [...elems],
+  providers: [ProductsAPIProvider]
 })
 export class ProductsModule {}
