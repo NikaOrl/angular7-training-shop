@@ -9,17 +9,16 @@ import * as ProductsActions from './../../../core/+store/products/products.actio
 @Component({
   selector: 'app-admin-product-form',
   templateUrl: './admin-product-form.component.html',
-  styleUrls: ['./admin-product-form.component.scss'],
+  styleUrls: ['./admin-product-form.component.scss']
 })
 export class AdminProductFormComponent implements OnInit {
   product: Product;
   id: number | string;
-  isOld: boolean;
 
   constructor(
     private store: Store<AppState>,
     private route: ActivatedRoute,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit() {

@@ -17,9 +17,9 @@
     />
   </div>
   <div formArrayName="phones">
-    <div *ngFor="let phones of phones.controls; let i = index">
-      <span>Phone number {{ i + 1 }}: </span
-      ><input
+    <div *ngFor="let phone of phones.controls; let i = index">
+      <span>Phone number {{ i + 1 }}:</span>
+      <input
         type="text"
         id="{{ 'phoneId' + i }}"
         formControlName="{{ i }}"
