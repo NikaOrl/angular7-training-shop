@@ -1,0 +1,18 @@
+<h2>Orders:</h2>
+<div *ngIf="orders.length > 0; else elseBlock">
+  <div *ngFor="let item of orders">
+    <h3>Order {{ item.id }}</h3>
+    <div>Client name: {{ item.clientName }}</div>
+    <div>Date: {{ item.date }}</div>
+    <div>Total price: {{ item.sumPrice | currency }}</div>
+    <div *ngFor="let product of item.products; let i = index">
+      <h4>Product {{ i }}</h4>
+      <div>Number of products {{ product.number + 1 }}</div>
+      <div>Name: {{ product.product.name }}</div>
+      <div>Description: {{ product.product.description }}</div>
+      <div>Price: {{ product.product.price }}</div>
+      <div>Category: {{ product.product.category }}</div>
+    </div>
+  </div>
+</div>
+<ng-template #elseBlock><h3>There are no orders yet</h3></ng-template>

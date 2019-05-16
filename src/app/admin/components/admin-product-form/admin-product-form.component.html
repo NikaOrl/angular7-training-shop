@@ -1,0 +1,76 @@
+<h4 class="pannel-title">
+  Product Form
+</h4>
+<form
+  *ngIf="product"
+  (ngSubmit)="onSaveProduct()"
+  id="task-form"
+  #form="ngForm"
+>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      placeholder="Name"
+      required
+      [(ngModel)]="product.name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input
+      type="text"
+      class="form-control"
+      id="description"
+      name="description"
+      placeholder="Description"
+      required
+      [(ngModel)]="product.description"
+    />
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input
+      type="number"
+      min="1"
+      class="form-control"
+      id="price"
+      name="price"
+      placeholder="Price"
+      required
+      [(ngModel)]="product.price"
+    />
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <input
+      type="text"
+      class="form-control"
+      id="category"
+      name="category"
+      placeholder="Category"
+      required
+      [(ngModel)]="product.category"
+    />
+  </div>
+  <div class="form-group">
+    <label for="isAvailable">Is available</label>
+    <input
+      type="checkbox"
+      class="form-control"
+      id="isAvailable"
+      name="isAvailable"
+      placeholder="Is available"
+      [(ngModel)]="product.isAvailable"
+    />
+  </div>
+  <button type="submit" form="task-form" [disabled]="form.invalid">
+    Save
+  </button>
+  <button type="button" class="btn btn-primary" (click)="onGoBack()">
+    Back
+  </button>
+</form>

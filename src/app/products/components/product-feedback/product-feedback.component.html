@@ -1,0 +1,12 @@
+<h3>Feedback</h3>
+<div>
+  <textarea [(ngModel)]="feedback"></textarea>
+</div>
+<div>
+  <button type="button" class="btn btn-primary" (click)="onFeedback()">
+    Add
+  </button>
+</div>
+<div *ngFor="let feedback of getFeedback()" class="message-row">
+  {{ feedback }}
+</div>

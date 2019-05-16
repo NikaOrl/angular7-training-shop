@@ -1,3 +1,17 @@
 <h1 #appTitle></h1>
-<app-product-list></app-product-list>
-<app-cart></app-cart>
+<button (click)="login()">Login</button>
+<li routerLinkActive="active">
+  <a routerLink="/products-list" href="#">Product List</a>
+</li>
+<li routerLinkActive="active">
+  <a routerLink="/cart" href="#">Cart</a>
+</li>
+<li routerLinkActive="active">
+  <a routerLink="/order" href="#">Order</a>
+</li>
+<li routerLinkActive="active">
+  <a routerLink="/admin" href="#">Admin</a>
+</li>
+<div class="container">
+  <router-outlet> </router-outlet>
+</div>

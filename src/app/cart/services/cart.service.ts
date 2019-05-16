@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 
-import { Product } from 'src/app/shared/models/product.model';
+import { Product } from 'src/app/products/models/product.model';
 import { BasketProduct } from 'src/app/shared/models/basketProduct.model';
 
 @Injectable({
@@ -65,14 +65,14 @@ export class CartService implements OnInit {
     return this.basket;
   }
 
-  getSumPrice() {
+  getSumPrice(): number {
     this.sumPrice = this.basket.reduce((previousValue, currentValue) => {
       return previousValue + currentValue.product.price * currentValue.number;
     }, 0);
     return this.sumPrice;
   }
 
-  getProductsNumber() {
+  getProductsNumber(): number {
     this.productsNumber = this.basket.reduce((previousValue, currentValue) => {
       return previousValue + currentValue.number;
     }, 0);
