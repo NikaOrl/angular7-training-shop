@@ -7,6 +7,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductFeedbackComponent } from './components/product-feedback/product-feedback.component';
 import { ProductCartComponent } from './components/product-cart/product-cart.component';
+import { ProductsAPIProvider } from './product.config';
 
 @NgModule({
   declarations: [
@@ -17,5 +18,6 @@ import { ProductCartComponent } from './components/product-cart/product-cart.com
   ],
   imports: [CommonModule, ProductsRoutingModule, FormsModule],
   exports: [ProductComponent, ProductListComponent],
+  providers: [ProductsAPIProvider],
 })
 export class ProductsModule {}
