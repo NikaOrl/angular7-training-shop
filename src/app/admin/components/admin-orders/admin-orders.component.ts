@@ -15,6 +15,5 @@ export class AdminOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.orders = this.ordersService.getOrders();
-    console.log(this.orders);
   }
 }
